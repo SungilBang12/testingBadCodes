@@ -7,14 +7,14 @@ using System.Text.RegularExpressions;
 class Program
 {
     // Magic Number 제거: 상수로 정의
-    private const int MIN_WORD_LENGTH = 4;
+    private const int MIN = 4;
     private const int TOP_RESULT_COUNT = 3;
     
     static List<Tuple<string, int>> AnalyzeText(string text)
     {
         // 1. 전처리: 소문자 변환 및 정규표현식으로 단어만 추출
         // \b\w{4,}\b : 4글자 이상의 단어 경계 매칭
-        string pattern = $@"\b\w{{{MIN_WORD_LENGTH},}}\b";
+        string pattern = $@"\b\w{{{MIN},}}\b";
         var cleanWords = Regex.Matches(text.ToLower(), pattern)
                               .Cast<Match>()
                               .Select(m => m.Value)
