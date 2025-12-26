@@ -12,7 +12,8 @@ class Program
     
     static List<Tuple<string, int>> AnalyzeText(string text)
     {
-        // 1. 전처리: 4글자 이상의 단어 경계 매칭
+        // 1. 전처리: 소문자 변환 및 정규표현식으로 단어만 추출
+        // \b\w{4,}\b : 4글자 이상의 단어 경계 매칭
         string pattern = $@"\b\w{{{MIN_WORD_LENGTH},}}\b";
         var cleanWords = Regex.Matches(text.ToLower(), pattern)
                               .Cast<Match>()
