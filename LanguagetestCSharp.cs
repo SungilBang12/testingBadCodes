@@ -7,8 +7,7 @@ class Program
 {
     static List<Tuple<string, int>> AnalyzeText(string text)
     {
-        // 1. 전처리: 소문자 변환 및 정규표현식으로 단어만 추출
-        // \b\w{4,}\b : 4글자 이상의 단어 경계 매칭
+        // 전처리: 4글자 이상의 단어 추출
         var cleanWords = Regex.Matches(text.ToLower(), @"\b\w{4,}\b")
                               .Cast<Match>()
                               .Select(m => m.Value)
