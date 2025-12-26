@@ -54,16 +54,3 @@ class Program
         // 예상 결과: [('coding', 3), ('powerful', 2), ('python', 1)]
     }
 }
-```
-
-Python 코드와 동일한 로직을 C#으로 구현했습니다:
-
-**주요 변환 내용:**
-1. **정규표현식**: `Regex.Matches()`로 패턴 매칭
-2. **빈도수 계산**: `Dictionary<string, int>`로 단어별 카운트
-3. **정렬**: LINQ의 `OrderByDescending()`과 `ThenBy()`로 다중 조건 정렬
-4. **결과 형식**: Python의 튜플 리스트와 동일하게 `Tuple<string, int>` 사용
-
-**실행 결과:**
-```
-C# Result: [('coding', 3), ('powerful', 2), ('python', 1)]
